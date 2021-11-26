@@ -1,0 +1,21 @@
+---
+title: "import-data"
+format:
+  html:
+    theme: default
+jupyter: python3
+---
+
+```{python import}
+import pandas as pd
+
+```
+
+The data come from a website for (recommendation systems](https://cseweb.ucsd.edu/~jmcauley/datasets.html#social_data). This project uses the LibraryThing datasets and follows the methods of two papers to recreate it. Ideally, this model is deployed into production and can be used and updeated without being taken offline.
+```{python json}
+def parse(path):
+  g = gzip.open(path, 'r')
+  for l in g:
+    yield eval(l)
+```
+
